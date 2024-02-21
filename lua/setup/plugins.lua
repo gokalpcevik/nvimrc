@@ -52,6 +52,17 @@ return {
 		init = function() vim.g.startuptime_tries = 10 end
 	},
 
+	{
+		'nvimdev/dashboard-nvim',
+		event = 'VimEnter',
+		config = function()
+			require('dashboard').setup {
+				-- config
+			}
+		end,
+		dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+	},
+
 	-- web-devicons
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
@@ -99,6 +110,16 @@ return {
 			insert_at_start = true,
 		},
 		version = '^1.0.0', -- optional: only update when a new 1.x version is released
+	},
+
+	-- amongst your other plugins
+	{
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		opts = require('setup.toggleterm'),
+		config = function(_, opts)
+			require('toggleterm').setup(opts)
+		end
 	},
 
 	-- Lualine - status line
@@ -152,7 +173,7 @@ return {
 
 	{
 		'hrsh7th/nvim-cmp',
-		event = "InsertEnter",
+		event = {"InsertEnter", "WinEnter", "BufEnter"},
 		dependencies = {
 			{
 				"windwp/nvim-autopairs",
