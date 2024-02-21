@@ -1,0 +1,12 @@
+# My Neovim Config
+- Package Manager: **lazy.nvim**
+- **Telescope** for fuzzy finding
+- **Barbar** for tabline
+- **lualine** for statusline
+- **nvim_cmp** for auto-complete
+- **lsp-zero** + **mason** for LSP stuff 
+- **Gruvbox**, **Kanagawa**, **Rose Pine** color schemes
+- **nvim-tree** for file tree nav.
+- **neodev**
+- **tresitter**
+- and more stuff like remapping 
