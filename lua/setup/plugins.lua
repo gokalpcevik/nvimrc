@@ -55,10 +55,10 @@ return {
 	{
 		'nvimdev/dashboard-nvim',
 		event = 'VimEnter',
-		config = function()
-			require('dashboard').setup {
-				-- config
-			}
+		opts = {
+		},
+		config = function(_, opts)
+			require('dashboard').setup(opts)
 		end,
 		dependencies = { { 'nvim-tree/nvim-web-devicons' } }
 	},
@@ -173,7 +173,7 @@ return {
 
 	{
 		'hrsh7th/nvim-cmp',
-		event = {"InsertEnter", "WinEnter", "BufEnter"},
+		event = { "InsertEnter", "WinEnter", "BufEnter" },
 		dependencies = {
 			{
 				"windwp/nvim-autopairs",
@@ -192,29 +192,15 @@ return {
 				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-cmdline",
-				"L3MON4D3/LuaSnip"
+				"L3MON4D3/LuaSnip",
+				"onsails/lspkind.nvim"
 			},
 		},
 		opts = function()
-			return require('setup.cmp')
+			return require('setup.cmp-opts')
 		end,
 		config = function(_, opts)
-			local cmp = require('cmp')
-			cmp.setup(opts)
-			-- `:` cmdline setup.
-			cmp.setup.cmdline(':', {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = 'path' }
-				}, {
-					{
-						name = 'cmdline',
-						option = {
-							ignore_cmds = { 'Man', '!' }
-						}
-					}
-				})
-			})
+			require('setup.cmp').setup(opts)
 		end
 	},
 
