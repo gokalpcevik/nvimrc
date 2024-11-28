@@ -1,5 +1,5 @@
 local options = {
-  ensure_installed = { "lua-language-server", "clangd", "cmake"},
+  ensure_installed = { "lua-language-server", "clangd", "cmake" },
 
   PATH = "skip",
 
