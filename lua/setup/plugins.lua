@@ -26,9 +26,8 @@ return {
     priority = 1000,
     lazy = false
   },
-  -- Borland!
   {
-    "letorbi/vim-colors-modern-borland",
+    "RRethy/base16-nvim",
     priority = 1000,
     lazy = false
   },
